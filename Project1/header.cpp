@@ -1,4 +1,4 @@
-#include <utility>
+п»ї#include <utility>
 #include "header.hpp"
 Json::Json(const std::string &s) {
 	size_t begin_object = s.find_first_of("{");
@@ -64,10 +64,10 @@ std::map<std::string, std::any> Json::parse_object(const std::string &s,
 			s[current] == '\v' || s[current] == '\0') {
 			continue;
 		}
-		//открытие объекта
+		//РѕС‚РєСЂС‹С‚РёРµ РѕР±СЉРµРєС‚Р°
 		if (s[current] == '{' && !flag_end_of_object) {
 			flag_end_of_object = true;
-			//далее ожидаем ключ =>
+			//РґР°Р»РµРµ РѕР¶РёРґР°РµРј РєР»СЋС‡ =>
 			flag_key = true;
 			continue;
 		}
@@ -75,7 +75,7 @@ std::map<std::string, std::any> Json::parse_object(const std::string &s,
 		if (s[current] == '"' && flag_key) {
 			key = parse_string(s, ++current);
 			flag_key = false;
-			//двоеточие
+			//РґРІРѕРµС‚РѕС‡РёРµ
 			flag_colon = true;
 			continue;
 		}
